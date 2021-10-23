@@ -1,0 +1,32 @@
+
+.forgot-password{
+  text-decoration: none;
+  margin: 10px;
+}
+
+
+.btn-submit{
+  padding: 4px 200px;
+  background-color:lightblue;
+  border-radius: 18px ;
+  color: rgb(68, 64, 64);
+  margin:20px 85px;
+ 
+}
+
+.btn-submit:hover{
+  box-shadow: 0px 0px 3px 1px blueviolet; 
+  opacity: 1;
+}
+
+
+.form-control{
+  border: white;
+  box-shadow: 0px 0px 0px 0px ;
+  border-radius: 0px;
+  border-bottom: 1px solid blue;
+}
+
+.login{
+  margin-top: 100px;
+}

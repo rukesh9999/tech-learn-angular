@@ -1,0 +1,64 @@
+<div class="margin ">
+   
+
+
+    <div class="container mt-5">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item " aria-current="page">StatusMain | Search StatusMain</li>
+            </ol>
+        </nav>
+    
+        <div class="heading">
+            <span>Search StatusMain</span>
+        </div>
+
+        <form class="mt-5">
+            <div class="form-row ">
+                <div class="form-group col-md-6">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Technology Name" />
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Description</label>
+                     <textarea type="text" class="form-control" name="name" placeholder="Description"></textarea>                 
+                 </div>
+
+            </div>
+
+            <div class="form-row ">
+                <div class="form-group col-md-6">
+                    <label>Status</label>
+                    <select class="form-select">
+                       <option selected>select status</option> 
+                       <option *ngFor="let status of status">{{status}}</option>
+                     </select>                    
+                  </div>
+
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Search" class="tech-search" />
+                </div>
+
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Reset" class="tech-search" />
+                </div>
+            </div>
+
+        </form>
+
+        <hr />
+        <span class="table-heading">Technologies</span>
+        <hr />
+
+       
+
+    </div>
+
+
+</div>

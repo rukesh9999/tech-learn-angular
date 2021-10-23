@@ -1,0 +1,166 @@
+.login,.register{
+    margin:18px 10px;
+    color: white;
+    border: 1px solid white;
+    padding: 3px 14px;
+    border-radius:14px;
+    text-decoration: none;
+    box-shadow: 4px white;
+}
+
+.login:hover,.register:hover{
+    opacity:1;
+    box-shadow: 0px 0px 3px 0px white
+    
+}
+
+.auth{
+  margin-left :auto ;
+}
+
+.login-name{
+  margin:auto;
+}
+
+.btn-login{
+ margin:auto;
+}
+.btn-login-name{
+  margin-left: 100px;
+  padding: 0px 100px;
+}
+
+
+
+.btn-dropdown{
+  display: inline-flex;
+  list-style: none;
+  margin: auto;
+}
+
+
+
+.nav-link{
+  color: white;
+  margin: 0px 21px;
+ 
+}
+
+
+
+
+.navbar-1{
+  background-color: gray;
+}
+
+
+.menubar{
+ margin-top: 50px;
+ background-color: pink;
+ text-align: center;
+}
+
+
+.menubar-ul{
+
+  list-style: none;
+  display: inline-flex;
+  color: white;
+  margin: 2px;
+  padding: 2px;
+  
+}
+
+.menubar-li{
+  margin: 15px 15px;
+  padding: 2px 2px;
+}
+
+
+
+.menubar-li a{
+  text-decoration: none;
+  color: white;
+}
+
+
+.fa{
+  margin-right: 6px;
+}
+
+.submenu{
+ 
+  display: none;
+  
+}
+
+.subsubmenu{
+ display: none;
+}
+
+.menubar-li:hover .submenu{
+  list-style: none;
+  display: block;
+  position: absolute;
+  background-color:gainsboro;
+  margin-top: 0px;
+  margin-left: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 2px white;
+  width: 250px;
+}
+
+
+.submenubar-li:hover .subsubmenu{
+
+  list-style: none;
+  display: block;
+  position: absolute;
+  background-color:gainsboro;
+  margin-top: -30px;
+  margin-left: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 2px white;
+  width: 200px;
+}
+
+.submenubar-li{
+  list-style: none;
+  text-align: left;
+  margin:5px 5px;
+  padding: 5px 5px;
+  border-bottom: 1px dotted white;
+  background: transparent;
+  border-radius: 0px;
+
+}
+
+.subsubmenubar-li{
+  list-style: none;
+  text-align: left;
+  margin:5px 5px;
+  padding: 5px 5px;
+  border-bottom: 1px dotted white;
+  background: transparent;
+  border-radius: 0px;
+}
+
+.submenubar-li:last-child{
+  border-bottom: none;;
+}
+
+.subsubmenubar-li:last-child{
+  border-bottom: none;;
+}
+
+.submenubar-li a:hover{
+  color: blueviolet;
+}
+
+.subsubmenubar-li a:hover{
+  color: blueviolet;
+}
+
+ .fa-angle-right{
+  float: right;
+}

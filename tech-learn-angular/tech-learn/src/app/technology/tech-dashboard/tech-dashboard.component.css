@@ -1,0 +1,26 @@
+.margin{
+    margin-top: 116px;
+}
+
+
+
+.heading{
+    height:40px;
+    width:100%;
+    background-color: gray;
+    color: white;
+    padding: 10px 0px;
+    margin-top: -16px;
+    
+   
+}
+
+.card-text{
+    text-align: center;
+    color: white;
+}
+
+.card-title{
+    text-align: center;
+    color: white;
+}

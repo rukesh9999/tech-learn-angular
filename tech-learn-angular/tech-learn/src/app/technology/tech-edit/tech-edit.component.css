@@ -1,0 +1,26 @@
+.margin{
+    margin-top: 116px;
+}
+
+
+
+.heading{
+    height:40px;
+    width:200%;
+    background-color: gray;
+    color: white;
+    padding: 10px 0px;
+    margin-top: -16px;
+   
+}
+
+
+.tech-submit{
+
+    color: white;
+    padding: 10px 0px ;
+    margin:10px 0px;
+    width: 1130px;
+    background-color: blue;
+    border-radius: 14px;
+}

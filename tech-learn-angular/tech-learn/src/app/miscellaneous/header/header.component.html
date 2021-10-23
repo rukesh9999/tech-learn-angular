@@ -1,0 +1,81 @@
+
+<header>
+   <section> 
+   <!--header nav bar-->
+     <nav class="navbar fixed-top navbar-expand-sm navbar-expand-md navbar-expand-lg   navbar-1">
+      <div>
+           <a href="#"  style=" text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;" class="navbar-brand text-white ">tech-learn</a>
+      </div>
+      
+       <div class="login-name">
+        <div *ngIf="loggedIn">
+        <span class="text-white btn-login-name ">HI  Rukesh Babu</span>
+         </div>
+       </div>
+      
+     
+     <div class="auth">
+       <div *ngIf="!loggedIn">
+         <a routerLink="login"     class="login">LOGIN</a>
+         <a routerLink="register"  class="register">REGISTER</a>
+      </div>
+     </div>
+    </nav>
+ </section>
+
+ <div *ngIf="loggedIn">
+ <section>
+   
+   <div class="menubar fixed-top">
+   <ul class="menubar-ul">
+     <li class="menubar-li"><a routerLink="batchjobsettings-search"><i class="fa fa-gear"></i>Setups</a>
+      <div class="submenu">
+        <ul class="submenubar-ul">
+          <li class="submenubar-li"><a href="#">BatchJob-Settings</a>
+            <i class="fa fa-angle-right"></i>
+            <div class="subsubmenu">
+              <ul class="subsubmenubar-ul">
+                <li class="subsubmenubar-li"><a routerLink="batchjobsettings-create">Create</a></li>
+                <li class="subsubmenubar-li"><a routerLink="batchjobsettings-search">Search</a></li>
+              </ul>
+            </div>
+           
+          </li>
+          <li class="submenubar-li"><a href="#">StatusMain</a>
+            <i class="fa fa-angle-right"></i>
+            <div class="subsubmenu">
+              <ul class="subsubmenubar-ul">
+                <li class="subsubmenubar-li"><a routerLink="statusmain-create">Create</a></li>
+                <li class="subsubmenubar-li"><a routerLink="statusmain-search">Search</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    
+    
+     </li>
+     <li class="menubar-li"><a routerLink="tech-search"><i class="fa fa-desktop"></i>Technology</a>
+      <div class="submenu">
+        <ul class="submenubar-ul">
+          <li class="submenubar-li"><a routerLink="tech-create">Create</a></li>
+          <li class="submenubar-li"><a routerLink="tech-search">Search</a></li>
+          <li class="submenubar-li"><a routerLink="tech-dashboard">DashBoard</a></li>
+        </ul>
+      </div>
+    </li>
+     <li class="menubar-li"><a routerLink="readmails-list"> <i class="fa fa-inbox"></i> MailBox</a></li>
+     <li class="menubar-li"><a routerLink="generate-reports"><i class="fa fa-line-chart"></i>Reports</a>
+    </li>
+   </ul>
+  </div>
+</section>
+
+</div>
+
+</header>
+  
+
+
+
+
