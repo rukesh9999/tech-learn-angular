@@ -18,15 +18,15 @@
   margin-left :auto ;
 }
 
-.login-name{
+ .login-name{
   margin:auto;
-}
+} 
 
 .btn-login{
  margin:auto;
 }
 .btn-login-name{
-  margin-left: 100px;
+  margin-left: 350px;
   padding: 0px 100px;
 }
 
@@ -163,4 +163,11 @@
 
  .fa-angle-right{
   float: right;
+}
+
+
+.user-icon{
+ margin-left:200px;
+ background-color: aquamarine;
+ border-radius: 100px;
 }

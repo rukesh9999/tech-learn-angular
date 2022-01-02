@@ -12,4 +12,9 @@ export class ReadmailsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  func()
+  {
+    
+  }
+
 }

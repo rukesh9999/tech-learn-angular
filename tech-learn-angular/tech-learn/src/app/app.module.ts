@@ -17,18 +17,15 @@ import { BatchjobsettingsSearchComponent } from './batchjobsettings/batchjobsett
 import { BatchjobsettingsEditComponent } from './batchjobsettings/batchjobsettings-edit/batchjobsettings-edit.component';
 import { ReadmailsListComponent } from './mailbox/readmails-list/readmails-list.component';
 import { GeneraterReportsComponent } from './reports/generater-reports/generater-reports.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import {MatTableModule} from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 import { StatusmainEditComponent } from './statusmain/statusmain-edit/statusmain-edit.component';
 import { StatusmainSearchComponent } from './statusmain/statusmain-search/statusmain-search.component';
 import { StatusmainCreateComponent } from './statusmain/statusmain-create/statusmain-create.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PageNotFoundComponent } from './miscellaneous/page-not-found/page-not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -50,23 +47,18 @@ import { NgxPaginationModule } from 'ngx-pagination';
     StatusmainEditComponent,
     StatusmainSearchComponent,
     StatusmainCreateComponent,
-    GeneraterReportsComponent
+    GeneraterReportsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     BsDatepickerModule.forRoot(),
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    NgxPaginationModule
-   
-    
+    FormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

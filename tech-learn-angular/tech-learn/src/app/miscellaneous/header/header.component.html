@@ -13,13 +13,22 @@
          </div>
        </div>
       
-     
+
+       <div class="auth">
+        <div *ngIf="loggedIn">
+          <img class="user-icon" src="assets/userprofile.png">
+        </div>
+      </div>
+      
+
      <div class="auth">
        <div *ngIf="!loggedIn">
          <a routerLink="login"     class="login">LOGIN</a>
          <a routerLink="register"  class="register">REGISTER</a>
       </div>
      </div>
+
+
     </nav>
  </section>
 
@@ -28,25 +37,25 @@
    
    <div class="menubar fixed-top">
    <ul class="menubar-ul">
-     <li class="menubar-li"><a routerLink="batchjobsettings-search"><i class="fa fa-gear"></i>Setups</a>
+     <li class="menubar-li"><a routerLink="batchjobsettings/batchjobsettings-search"><i class="fa fa-gear"></i>Setups</a>
       <div class="submenu">
         <ul class="submenubar-ul">
-          <li class="submenubar-li"><a href="#">BatchJob-Settings</a>
+          <li class="submenubar-li"><a routerLink="batchjobsettings/batchjobsettings-search">BatchJob-Settings</a>
             <i class="fa fa-angle-right"></i>
             <div class="subsubmenu">
               <ul class="subsubmenubar-ul">
-                <li class="subsubmenubar-li"><a routerLink="batchjobsettings-create">Create</a></li>
-                <li class="subsubmenubar-li"><a routerLink="batchjobsettings-search">Search</a></li>
+                <li class="subsubmenubar-li"><a routerLink="batchjobsettings/batchjobsettings-create">Create</a></li>
+                <li class="subsubmenubar-li"><a routerLink="batchjobsettings/batchjobsettings-search">Search</a></li>
               </ul>
             </div>
            
           </li>
-          <li class="submenubar-li"><a href="#">StatusMain</a>
+          <li class="submenubar-li"><a routerLink="statusmain/statusmain-search">StatusMain</a>
             <i class="fa fa-angle-right"></i>
             <div class="subsubmenu">
               <ul class="subsubmenubar-ul">
-                <li class="subsubmenubar-li"><a routerLink="statusmain-create">Create</a></li>
-                <li class="subsubmenubar-li"><a routerLink="statusmain-search">Search</a></li>
+                <li class="subsubmenubar-li"><a routerLink="statusmain/statusmain-create">Create</a></li>
+                <li class="subsubmenubar-li"><a routerLink="statusmain/statusmain-search">Search</a></li>
               </ul>
             </div>
           </li>
@@ -55,17 +64,17 @@
     
     
      </li>
-     <li class="menubar-li"><a routerLink="tech-search"><i class="fa fa-desktop"></i>Technology</a>
+     <li class="menubar-li"><a routerLink="technology/tech-search"><i class="fa fa-desktop"></i>Technology</a>
       <div class="submenu">
         <ul class="submenubar-ul">
-          <li class="submenubar-li"><a routerLink="tech-create">Create</a></li>
-          <li class="submenubar-li"><a routerLink="tech-search">Search</a></li>
-          <li class="submenubar-li"><a routerLink="tech-dashboard">DashBoard</a></li>
+          <li class="submenubar-li"><a routerLink="technology/tech-create">Create</a></li>
+          <li class="submenubar-li"><a routerLink="technology/tech-search">Search</a></li>
+          <li class="submenubar-li"><a routerLink="technology/tech-dashboard">DashBoard</a></li>
         </ul>
       </div>
     </li>
-     <li class="menubar-li"><a routerLink="readmails-list"> <i class="fa fa-inbox"></i> MailBox</a></li>
-     <li class="menubar-li"><a routerLink="generate-reports"><i class="fa fa-line-chart"></i>Reports</a>
+     <li class="menubar-li"><a routerLink="mailbox/readmails-list"> <i class="fa fa-inbox"></i> MailBox</a></li>
+     <li class="menubar-li"><a routerLink="reports/generate-reports"><i class="fa fa-line-chart"></i>Reports</a>
     </li>
    </ul>
   </div>

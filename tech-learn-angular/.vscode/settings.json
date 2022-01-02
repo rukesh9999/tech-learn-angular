@@ -1,13 +1,19 @@
 {
     "cSpell.words": [
         "Batchjobsettings",
+        "batchjobsettingsearch",
+        "batchjobsettingsedit",
         "Datepicker",
+        "firstname",
+        "formbuilder",
+        "generater",
+        "portnumber",
         "Protocal",
+        "readmails",
         "Rukesh",
         "Statusmain",
-        "firstname",
-        "generater",
-        "readmails"
+        "techlearn",
+        "techlearnservice"
     ],
     "git.ignoreLimitWarning": true
 }

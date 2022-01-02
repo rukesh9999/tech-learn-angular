@@ -14,26 +14,26 @@
             <span>Generate Reports</span>
         </div>
 
-        <form class="mt-5">
+        <form class="mt-5" [formGroup]="techReportForm">
           
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>From Date </label>
-                    <input type="text" placeholder=" Created Date" class="form-control" bsDatepicker
-                        [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }">
+                    <input type="text" placeholder="Created Date" class="form-control" bsDatepicker
+                        [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" formControlName="fromDate">
                 </div>
 
                 <div class="form-group col-md-6">
                     <label> To Date</label>
                     <input type="text" placeholder=" To Date" class="form-control" bsDatepicker
-                        [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }">
+                        [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" formControlName="toDate">
                 </div>
             </div>
 
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label>Status</label>
-                    <select class="form-select">
+                    <select class="form-select" formControlName="status">
                         <option  selected>select status</option>
                         <option *ngFor="let status of status">{{status}}</option>
                       </select> 
@@ -43,11 +43,11 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Generate" class="tech-search" />
+                    <input type="submit" value="Generate" class="tech-search" (click)="generateTechReport(techReportForm)" />
                 </div>
 
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Reset" class="tech-search" />
+                    <input type="submit" value="Reset" class="tech-search"  (click)="resetTechReportForm(techReportForm)"/>
                 </div>
             </div>
 

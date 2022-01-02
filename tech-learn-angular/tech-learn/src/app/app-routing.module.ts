@@ -6,6 +6,7 @@ import { BatchjobsettingsCreateComponent } from './batchjobsettings/batchjobsett
 import { BatchjobsettingsEditComponent } from './batchjobsettings/batchjobsettings-edit/batchjobsettings-edit.component';
 import { BatchjobsettingsSearchComponent } from './batchjobsettings/batchjobsettings-search/batchjobsettings-search.component';
 import { ReadmailsListComponent } from './mailbox/readmails-list/readmails-list.component';
+import { PageNotFoundComponent } from './miscellaneous/page-not-found/page-not-found.component';
 import { GeneraterReportsComponent } from './reports/generater-reports/generater-reports.component';
 import { StatusmainCreateComponent } from './statusmain/statusmain-create/statusmain-create.component';
 import { StatusmainEditComponent } from './statusmain/statusmain-edit/statusmain-edit.component';
@@ -18,18 +19,20 @@ import { TechSearchComponent } from './technology/tech-search/tech-search.compon
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'tech-create',component:TechCreateComponent},
-  {path:'tech-search',component:TechSearchComponent},
-  {path:'tech-dashboard',component:TechDashboardComponent},
-  {path:'tech-edit',component:TechEditComponent},
-  {path:'batchjobsettings-create',component:BatchjobsettingsCreateComponent},
-  {path:'batchjobsettings-search',component:BatchjobsettingsSearchComponent},
-  {path:'batchjobsettings-edit',component:BatchjobsettingsEditComponent},
-  {path:'statusmain-create',component:StatusmainCreateComponent},
-  {path:'statusmain-search',component:StatusmainSearchComponent},
-  {path:'statusmain-edit',component:StatusmainEditComponent},
-  {path:'readmails-list',component:ReadmailsListComponent},
-  {path:'generate-reports',component:GeneraterReportsComponent}
+  {path:'technology/tech-create',component:TechCreateComponent},
+  {path:'technology/tech-search',component:TechSearchComponent},
+  {path:'technology/tech-dashboard',component:TechDashboardComponent},
+  {path:'technology/tech-edit',component:TechEditComponent},
+  {path:'batchjobsettings/batchjobsettings-create',component:BatchjobsettingsCreateComponent},
+  {path:'batchjobsettings/batchjobsettings-search',component:BatchjobsettingsSearchComponent},
+  {path:'batchjobsettings/batchjobsettings-edit',component:BatchjobsettingsEditComponent},
+  {path:'statusmain/statusmain-create',component:StatusmainCreateComponent},
+  {path:'statusmain/statusmain-search',component:StatusmainSearchComponent},
+  {path:'statusmain/statusmain-edit',component:StatusmainEditComponent},
+  {path:'mailbox/readmails-list',component:ReadmailsListComponent},
+  {path:'reports/generate-reports',component:GeneraterReportsComponent},
+  {path:'',redirectTo:'technology/tech-dashboard',pathMatch:'full'},
+  {path:'**',component:PageNotFoundComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-batchjobsettings-edit',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BatchjobsettingsEditComponent implements OnInit {
 
-  constructor() { }
+  batchjobsettingseditForm:any=FormGroup;
+  constructor(private formbuilder:FormBuilder) { 
+    this.batchjobsettingseditForm = this.formbuilder.group({
+      portnumber:new FormControl(''),
+      protocal:new FormControl(''),
+      host:new FormControl(''),
+      username:new FormControl(''),
+      password:new FormControl(''),
+      enableAutoConvertToTechnology:new FormControl('')
+    });
+  }
 
+  
   ngOnInit(): void {
   }
 
+ 
 }

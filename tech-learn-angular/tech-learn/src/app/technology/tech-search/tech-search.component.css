@@ -38,9 +38,9 @@
 }
 
 
-table {
+.table {
     width: 100%;
-    margin-bottom:120px;
+    margin-bottom: 100px;
   }
 
   th.mat-sort-header-sorted {

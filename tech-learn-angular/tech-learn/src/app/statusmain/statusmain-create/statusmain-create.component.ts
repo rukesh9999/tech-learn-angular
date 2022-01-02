@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-statusmain-create',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusmainCreateComponent implements OnInit {
 
-  constructor() { }
+  statusmainCreateForm:any=FormGroup;
+  constructor(private formBuilder:FormBuilder) { 
+    this.statusmainCreateForm=this.formBuilder.group({
+      name:new FormControl(''),
+      description:new FormControl('')
+    });
+  }
 
   ngOnInit(): void {
   }
+
+  saveStatusMain(statusmainCreateForm:FormGroup)
+  {
+
+  }
+
+  resetStatusMain(statusmainCreateForm:FormGroup)
+  {
+    statusmainCreateForm.reset();
+  }
+
 
 }

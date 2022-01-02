@@ -14,27 +14,27 @@
             <span>Create StatusMain</span>
         </div>
 
-        <form class="mt-5">
+        <form class="mt-5" [formGroup]="statusmainCreateForm">
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label>Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Technology Name" />
+                    <input type="text" class="form-control" placeholder="Technology Name" formControlName="name"/>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label>Description</label>
-                    <textarea type="text" class="form-control" name="name" placeholder="Description"></textarea>
+                    <textarea type="text" class="form-control" placeholder="Description" formControlName="description"></textarea>
                 </div>
 
             </div>
 
             <div  class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Create"  class="tech-submit"/>
+                    <input type="submit" value="Create"  class="tech-submit"  (click)="saveStatusMain(statusmainCreateForm)"/>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Reset"  class="tech-submit"/>
+                    <input type="submit" value="Reset"  class="tech-submit" (click)="resetStatusMain(statusmainCreateForm)" />
                 </div>
             </div>
 

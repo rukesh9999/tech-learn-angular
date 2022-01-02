@@ -8,15 +8,51 @@
              <h4>REGISTER</h4>
          </div>
          <div class="card-body">
-             <form>       
-                 <input type="text" class="form-control" placeholder="First Name"/>
-                 <input type="text" class="form-control" placeholder="Last Name"/>
-                 <input type="text" class="form-control" placeholder="User Name"/>
-                 <input type="email" class="form-control" placeholder="Email"/>
+             <form [formGroup]="registerForm">    
+                 <input type="text" class="form-control" placeholder="First Name" formControlName="firstName"/>
+                 <div *ngIf="registerForm.controls.firstName.errors && 
+                 (registerForm.controls.firstName.touched || registerForm.controls.firstName.dirty)" class="text-danger">
+                 <div *ngIf="registerForm.hasError('required','firstName')">
+                       First Name is required
+                 </div>
+                 <div *ngIf="registerForm.hasError('pattern','firstName')">
+                       First Name is Invalid
+                 </div>
+                 <div *ngIf="registerForm.hasError('minlength','firstName')">
+                       First Name must be At least 3 characters long
+              </div>
+                </div>
+                 <input type="text" class="form-control" placeholder="Last Name"  formControlName="lastName" />
+
+                 <div *ngIf="registerForm.controls.lastName.errors && 
+                 (registerForm.controls.lastName.touched || registerForm.controls.lastName.dirty)" class="text-danger">
+                 <div *ngIf="registerForm.hasError('required','lastName')">
+                    Last Name is required
+                 </div>
+                 <div *ngIf="registerForm.hasError('pattern','lastName')">
+                    Last Name is Invalid
+                 </div>
+                 <div *ngIf="registerForm.hasError('minlength','lastName')">
+                   Last Name must be At least 3 characters long
+               </div>
+                </div>
+                 <input type="email" class="form-control" placeholder="Email"     formControlName="email" />
+                 <div *ngIf="registerForm.controls.email.errors && 
+                 (registerForm.controls.email.touched || registerForm.controls.email.dirty)" class="text-danger">
+                 <div *ngIf="registerForm.hasError('required','email')">
+                    Email is required
+                 </div>
+                 <div *ngIf="registerForm.hasError('pattern','email')">
+                    Email is Invalid
+                 </div>
+                 <div *ngIf="registerForm.hasError('minlength','email')">
+                  First Name must be At least 3 characters long
+               </div>
+                </div>
             </form>
         </div>
         <div class="card-footer">
-          <input class="btn-submit" type="submit" value="REGISTER" />
+          <input class="btn-submit" type="submit" value="REGISTER"  (click)="register(registerForm)"/>
           <div class="text-center">
               <span class="btn btn-link">Existing User?
                    <a  class="link" routerLink="/login">LOGIN</a></span>

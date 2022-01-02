@@ -1,7 +1,4 @@
 <div class="margin ">
-
-
-
     <div class="container mt-5">
 
         <nav aria-label="breadcrumb">
@@ -14,16 +11,38 @@
             <span>Create Batchjobsettings</span>
         </div>
 
-        <form class="mt-5">
+        <form class="mt-5" [formGroup]="batchjobsettingsCreateForm">
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label>Port Number</label>
-                    <input type="text" class="form-control" name="name" placeholder="Port Number" />
+                    <input type="text" class="form-control"  placeholder="Port Number"  formControlName="portnumber"/>
+                    <div *ngIf="batchjobsettingsCreateForm.controls.portnumber.errors && (batchjobsettingsCreateForm.controls.portnumber.touched ||
+                    batchjobsettingsCreateForm.controls.portnumber.dirty)"  class="text-danger">
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('required','portnumber')">
+                        portnumber is Required
+                    </div>
+                   
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('minlength','portnumber')">
+                        portnumber must be 3 characters long
+                    </div>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label>Protocal</label>
-                    <input type="text" class="form-control" name="name" placeholder=" Protocal" />
+                    <input type="text" class="form-control" placeholder="Protocal" formControlName="protocal"/>
+                    <div *ngIf="batchjobsettingsCreateForm.controls.protocal.errors && (batchjobsettingsCreateForm.controls.protocal.touched ||
+                    batchjobsettingsCreateForm.controls.protocal.dirty)"  class="text-danger">
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('required','protocal')">
+                        protocal is Required
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('pattern','protocal')">
+                        protocal is Invalid Format
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('minlength','protocal')">
+                        protocal  must be 3 characters long
+                    </div>
+                    </div>
                 </div>
 
             </div>
@@ -31,12 +50,36 @@
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label>Host</label>
-                    <input type="text" class="form-control" name="name" placeholder="Host" />
+                    <input type="text" class="form-control"  placeholder="Host" formControlName="host"/>
+                    <div *ngIf="batchjobsettingsCreateForm.controls.host.errors && (batchjobsettingsCreateForm.controls.host.touched ||
+                    batchjobsettingsCreateForm.controls.host.dirty)"  class="text-danger">
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('required','host')">
+                        host  is Required
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('pattern','host')">
+                        host is Invalid Format
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('minlength','host')">
+                        host must be 3 characters long
+                    </div>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label>User Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="User Name" />
+                    <input type="text" class="form-control" placeholder="User Name" formControlName="username" />
+                    <div *ngIf="batchjobsettingsCreateForm.controls.username.errors && (batchjobsettingsCreateForm.controls.username.touched ||
+                    batchjobsettingsCreateForm.controls.username.dirty)"  class="text-danger">
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('required','username')">
+                        username is Required
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('pattern','username')">
+                        username is Invalid Format
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('minlength','username')">
+                        username  must be 3 characters long
+                    </div>
+                    </div>
                 </div>
 
             </div>
@@ -44,30 +87,47 @@
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label>Password</label>
-                    <input type="text" class="form-control" name="name" placeholder="Password" />
+                    <input type="text" class="form-control" placeholder="Password" formControlName="password"/>
+                    <div *ngIf="batchjobsettingsCreateForm.controls.password.errors && (batchjobsettingsCreateForm.controls.password.touched ||
+                    batchjobsettingsCreateForm.controls.password.dirty)"  class="text-danger">
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('required','password')">
+                        Password is Required
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('pattern','password')">
+                        Password is Invalid Format
+                    </div>
+                    <div *ngIf="batchjobsettingsCreateForm.hasError('minlength','password')">
+                        Password must be 3 characters long
+                    </div>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6 form-check">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="enableAutoConvertToTechnology">
                         <label class="form-check-label" for="flexCheckDefault">
                             EnableAutoConvertToTechnology
                         </label>
+                        <div *ngIf="batchjobsettingsCreateForm.controls.enableAutoConvertToTechnology.errors && (batchjobsettingsCreateForm.controls.enableAutoConvertToTechnology.touched ||
+                        batchjobsettingsCreateForm.controls.enableAutoConvertToTechnology.dirty)"  class="text-danger">
+                        <div *ngIf="batchjobsettingsCreateForm.hasError('required','enableAutoConvertToTechnology')">
+                            enableAutoConvertToTechnology is Required
+                        </div>
+                        
+                        </div>
                       </div>
                 </div>
 
             </div>
 
           
-
-
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Create" class="tech-submit" />
+                    <input type="submit" value="Create" class="tech-submit" (click)="saveBatchjobsettings(batchjobsettingsCreateForm)"/>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Reset" class="tech-submit" />
+                    <input type="submit" value="Reset" class="tech-submit" (click)="ResetBatchjobsettings(batchjobsettingsCreateForm)" />
                 </div>
             </div>
 

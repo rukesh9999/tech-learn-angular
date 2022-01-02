@@ -8,9 +8,33 @@
              <h4 class="text-primary">LOGIN</h4>
          </div>
          <div class="card-body">
-             <form>       
-                 <input type="email" class="form-control" placeholder="User Name"/>
-                 <input type="text" class="form-control" placeholder="password"/>
+             <form [formGroup]="loginForm">       
+                 <input type="email" class="form-control" placeholder="User Name" formControlName="username" />
+                 <div *ngIf="loginForm.controls.username.errors && 
+                 (loginForm.controls.username.touched || loginForm.controls.username.dirty)" class="text-danger">
+                 <div *ngIf="loginForm.hasError('required','username')">
+                    username is required
+                 </div>
+                 <div *ngIf="loginForm.hasError('pattern','username')">
+                    username is Invalid
+                 </div>
+                 <div *ngIf="loginForm.hasError('minlength','username')">
+                   username must be At least 3 characters long
+               </div>
+                </div>
+                 <input type="text" class="form-control" placeholder="password" formControlName="password"/>
+                 <div *ngIf="loginForm.controls.password.errors && 
+                 (loginForm.controls.password.touched || loginForm.controls.password.dirty)" class="text-danger">
+                 <div *ngIf="loginForm.hasError('required','password')">
+                    password is required
+                 </div>
+                 <div *ngIf="loginForm.hasError('pattern','password')">
+                    password is Invalid
+                 </div>
+                 <div *ngIf="loginForm.hasError('minlength','password')">
+                   password  must be At least 3 characters long
+               </div>
+                </div>
                  <div class="row">
                     <div class="col-md-4"></div>
                     <div class="col-md-4"></div>
@@ -21,7 +45,7 @@
             </form>
         </div>
         <div class="card-footer">
-            <input class="btn-submit" type="submit" value="LOGIN" />
+            <input class="btn-submit" type="submit" value="LOGIN"  (click)="login(loginForm)"/>
             <div class="text-center">
              <span class="btn btn-link">New To tech-learn?
                   <a class="link" routerLink="/register">REGISTER</a></span>
