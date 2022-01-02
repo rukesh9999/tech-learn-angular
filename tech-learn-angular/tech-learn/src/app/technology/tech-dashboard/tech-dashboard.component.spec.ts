@@ -8,8 +8,9 @@ describe('TechDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TechDashboardComponent ]
-    })
+    declarations: [TechDashboardComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 
