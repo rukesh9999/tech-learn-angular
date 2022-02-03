@@ -9,17 +9,17 @@
          </div>
          <div class="card-body">
              <form [formGroup]="loginForm">       
-                 <input type="email" class="form-control" placeholder="User Name" formControlName="username" />
-                 <div *ngIf="loginForm.controls.username.errors && 
-                 (loginForm.controls.username.touched || loginForm.controls.username.dirty)" class="text-danger">
-                 <div *ngIf="loginForm.hasError('required','username')">
-                    username is required
+                 <input type="email" class="form-control" placeholder="User Name" formControlName="userName" />
+                 <div *ngIf="loginForm.controls.userName.errors && 
+                 (loginForm.controls.userName.touched || loginForm.controls.userName.dirty)" class="text-danger">
+                 <div *ngIf="loginForm.hasError('required','userName')">
+                    userName is required
                  </div>
-                 <div *ngIf="loginForm.hasError('pattern','username')">
-                    username is Invalid
+                 <div *ngIf="loginForm.hasError('pattern','userName')">
+                    userName is Invalid
                  </div>
-                 <div *ngIf="loginForm.hasError('minlength','username')">
-                   username must be At least 3 characters long
+                 <div *ngIf="loginForm.hasError('minlength','userName')">
+                   userName must be At least 3 characters long
                </div>
                 </div>
                  <input type="text" class="form-control" placeholder="password" formControlName="password"/>
@@ -39,7 +39,7 @@
                     <div class="col-md-4"></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-4 btn">
-                       <a class="forgot-password">Forgot Password?</a>
+                       <a class="forgot-password" data-toggle="modal" data-target="#forgotpassword" >Forgot Password?</a>
                     </div>
                  </div>
             </form>
@@ -50,6 +50,13 @@
              <span class="btn btn-link">New To tech-learn?
                   <a class="link" routerLink="/register">REGISTER</a></span>
             </div>
+            <span *ngIf="showloginspinner">
+              <div class="text-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              </span>
         </div>
      </div>
     </div>
@@ -57,6 +64,59 @@
      <div class="col-md-3 col-md-3 col-lg-3">
     </div>
      </div>
-    
+
+
+     
    </div>
+
+   
+   
+
+   <div class="modal fade" id="forgotpassword" tabindex="-1" role="dialog" aria-labelledby="forgotpasswordLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="forgotpasswordLabel">Forgot Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form  [formGroup]="forgotpasswordForm">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Email:</label>
+                <input type="text" class="form-control"  formControlName="email"  (blur)="validateEmail()">
+                <div *ngIf="forgotpasswordForm.controls.email.errors && 
+                 (forgotpasswordForm.controls.email.touched || forgotpasswordForm.controls.email.dirty) || existEmail" class="text-danger">
+                 <div *ngIf="forgotpasswordForm.hasError('required','email')">
+                    Email is required
+                 </div>
+                 <div *ngIf="forgotpasswordForm.hasError('pattern','email')">
+                    Email is Invalid
+                 </div>
+                 <div *ngIf="forgotpasswordForm.hasError('minlength','email')">
+                   Email must be At least 3 characters long
+               </div>
+               <div *ngIf="existEmail">
+                   Email does not exists
+                </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" [disabled]="disabled" (click)="sendEmail(forgotpasswordForm)">Send Email</button>
+          </div>
+          <span *ngIf="showspinner">
+          <div class="text-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+          </span>
+        </div>
+      </div>
+    </div>
+   
    

@@ -1,5 +1,8 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TechLearnServiceService } from 'src/app/tech-learn-service.service';
 
 @Component({
@@ -10,30 +13,55 @@ import { TechLearnServiceService } from 'src/app/tech-learn-service.service';
 export class LoginComponent implements OnInit {
 
   loginForm:any=FormGroup;
-
-  constructor(private formBuilder:FormBuilder,private techlearnservice:TechLearnServiceService) { 
+  forgotpasswordForm:any=FormGroup;
+  existEmail:boolean;
+  showspinner:boolean;
+  showloginspinner:boolean;
+  disabled:boolean;
+  constructor(private formBuilder:FormBuilder,
+    private techlearnservice:TechLearnServiceService,
+    private route:Router,
+    private toaster:ToastrService) { 
     this.loginForm=this.formBuilder.group({
-      username:new FormControl('',[Validators.required,
+      userName:new FormControl('',[Validators.required,
         Validators.compose([Validators.pattern('[A-Za-z0-9_@.]*$'),
         Validators.minLength(3)])]),
       password:new FormControl('',[Validators.required,
         Validators.compose([Validators.pattern('[A-Za-z0-9_@.]*$'),
         Validators.minLength(3)])])
     });
+
+    this.forgotpasswordForm=this.formBuilder.group({
+      email:new FormControl('',[Validators.required,
+        Validators.compose([Validators.pattern('[A-Za-z0-9_@.]*$'),
+        Validators.minLength(3)])])
+     
+    });
   }
 
   ngOnInit(): void {
+    this.showspinner=false;
+    this.showloginspinner=false;
+    this.disabled=false;
   }
 
 
   login(loginForm:FormGroup){
-
+   
      if(loginForm.valid)
      {
-        this.techlearnservice.login(loginForm).subscribe((response)=>{
+      this.showloginspinner=true;
+
+        this.techlearnservice.login(loginForm.value).subscribe((response)=>{
+          this.showspinner=false;
           console.log(response);
-          
+          localStorage.setItem('authenticationToken',response.authenticationToken);
+          localStorage.setItem('refreshToken',response.refreshToken);
+          localStorage.setItem('userName',response.userName);
         });
+
+        this.route.navigate(['technology/tech-dashboard']);
+
      }else 
      {
        this.validateFormFields(loginForm);
@@ -58,6 +86,46 @@ export class LoginComponent implements OnInit {
         });
   }
 
+  
 
+  validateEmail()
+   {
+      const email = this.forgotpasswordForm.get('email').value;
+      this.techlearnservice.verifyUserExistsORNot(email).subscribe((response)=>{
+       if(response=='exists')
+       {
+         this.existEmail=false;
+       }else{
+         this.existEmail=true;
+       }
+        console.log(response);
+      });
+   }
+
+
+   sendEmail(forgotpasswordForm:FormGroup)
+   {
+   
+       if(forgotpasswordForm.valid && this.existEmail==false)
+       {
+        this.showspinner=true;
+        this.disabled=true;
+        const email = forgotpasswordForm.get('email').value;
+        this.techlearnservice.forgotpassword(email).subscribe((response)=>{
+          this.showspinner=false;
+           document.getElementById('forgotpassword').click();
+               if(response!=null){
+                this.toaster.success('Email Sent successfully,Please check your Inbox to change password');
+               }else{
+                 this.toaster.error('Fail to sent Email');
+               }
+
+               this.disabled=false;
+               this.forgotpasswordForm.controls['email'].setValue('');
+         });
+       }else{
+        this.validateFormFields(forgotpasswordForm);
+       }
+   }
 
 }

@@ -9,7 +9,10 @@ import { BASE_URL } from "./techlearn.url.const";
  export const LOGIN=BASE_URL+'api/auth/login';
  export const REFRESH_TOKEN=BASE_URL+'api/auth/refresh/token';
  export const LOGOUT=BASE_URL+'api/auth/logout';
-  //end  of Auth 
+ export const VERIFY_USER_EXISTS_OR_NOT=BASE_URL+'api/auth/verifyUserExistsORNot';
+ export const FORGOT_PASSWORD=BASE_URL+'api/auth/forgotpassword';
+ export const CHANGE_PASSWORD=BASE_URL+'api/auth/changepassword';
+ //end  of Auth 
 
 
  //start of BAtchJobsetttings 

@@ -20,7 +20,8 @@
                  </div>
                  <div *ngIf="registerForm.hasError('minlength','firstName')">
                        First Name must be At least 3 characters long
-              </div>
+                 </div>
+                 
                 </div>
                  <input type="text" class="form-control" placeholder="Last Name"  formControlName="lastName" />
 
@@ -36,9 +37,10 @@
                    Last Name must be At least 3 characters long
                </div>
                 </div>
-                 <input type="email" class="form-control" placeholder="Email"     formControlName="email" />
-                 <div *ngIf="registerForm.controls.email.errors && 
-                 (registerForm.controls.email.touched || registerForm.controls.email.dirty)" class="text-danger">
+                
+                 <input type="email" class="form-control" placeholder="Email"  (blur)="validateEmail()"   formControlName="email" />
+                 <div *ngIf="registerForm.controls.email.errors  && 
+                 (registerForm.controls.email.touched || registerForm.controls.email.dirty) || existEmail" class="text-danger">
                  <div *ngIf="registerForm.hasError('required','email')">
                     Email is required
                  </div>
@@ -46,17 +48,27 @@
                     Email is Invalid
                  </div>
                  <div *ngIf="registerForm.hasError('minlength','email')">
-                  First Name must be At least 3 characters long
+                  Email must be At least 3 characters long
                </div>
+               <div *ngIf="existEmail">
+                  Email already exists
+              </div>
                 </div>
             </form>
         </div>
         <div class="card-footer">
-          <input class="btn-submit" type="submit" value="REGISTER"  (click)="register(registerForm)"/>
+          <input class="btn-submit" type="submit" value="REGISTER" [disabled]="disabled" (click)="register(registerForm)"/>
           <div class="text-center">
               <span class="btn btn-link">Existing User?
                    <a  class="link" routerLink="/login">LOGIN</a></span>
           </div>
+          <span *ngIf="showspinner">
+            <div class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            </span>
         </div>
      </div>
     </div>

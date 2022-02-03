@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TechLearnServiceService } from 'src/app/tech-learn-service.service';
 
@@ -11,9 +12,13 @@ import { TechLearnServiceService } from 'src/app/tech-learn-service.service';
 export class RegisterComponent implements OnInit {
 
   registerForm:any=FormGroup;
+  existEmail:boolean;
+  showspinner:boolean;
+  disabled:boolean;
   constructor(private formBuilder:FormBuilder,
     private techlearnservice:TechLearnServiceService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private route:Router) {
     this.registerForm = this.formBuilder.group({
         firstName:new FormControl('',[Validators.required,
           Validators.compose([Validators.pattern('[a-zA-Z]*'),
@@ -28,18 +33,24 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.showspinner=false;
+    this.disabled=false;
   }
 
 
   register(registerForm:FormGroup){
     
-     if(registerForm.valid)
+     if(registerForm.valid && this.existEmail==false)
      {
+      this.showspinner=true;
+      this.disabled=true;
        this.techlearnservice.register(registerForm.value).subscribe((response)=>{
          console.log(response);
+         this.showspinner=false;
          this.toastr.success('Registered successfully');
+         this.route.navigate(['/login']);
        },(error)=>{
+        this.disabled=false;
          this.toastr.error('Fail to Register');
        });   
      }else
@@ -64,5 +75,19 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+
+  validateEmail()
+   {
+      const email = this.registerForm.get('email').value;
+      this.techlearnservice.verifyUserExistsORNot(email).subscribe((response)=>{
+       if(response=='exists')
+       {
+         this.existEmail=true;
+       }else{
+         this.existEmail=false;
+       }
+        console.log(response);
+      });
+   }
 
 }

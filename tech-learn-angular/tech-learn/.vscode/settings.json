@@ -1,15 +1,22 @@
 {
     "cSpell.words": [
         "Batchjobsettings",
+        "codelyzer",
+        "confirmpassword",
+        "confirmpasswordvalidator",
         "Datepicker",
         "Daterangepicker",
-        "Generater",
-        "Readmails",
-        "Statusmain",
-        "codelyzer",
         "devkit",
         "fontawesome",
+        "forgotpassword",
         "fortawesome",
-        "rukesh"
+        "Generater",
+        "Readmails",
+        "rukesh",
+        "showloginspinner",
+        "showspinner",
+        "Statusmain",
+        "techlearnservice",
+        "updatedpassword"
     ]
 }

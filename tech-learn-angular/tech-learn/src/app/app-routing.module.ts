@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { BatchjobsettingsCreateComponent } from './batchjobsettings/batchjobsettings-create/batchjobsettings-create.component';
@@ -19,6 +20,7 @@ import { TechSearchComponent } from './technology/tech-search/tech-search.compon
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'technology/tech-create',component:TechCreateComponent},
   {path:'technology/tech-search',component:TechSearchComponent},
   {path:'technology/tech-dashboard',component:TechDashboardComponent},
@@ -31,8 +33,8 @@ const routes: Routes = [
   {path:'statusmain/statusmain-edit',component:StatusmainEditComponent},
   {path:'mailbox/readmails-list',component:ReadmailsListComponent},
   {path:'reports/generate-reports',component:GeneraterReportsComponent},
-  {path:'',redirectTo:'technology/tech-dashboard',pathMatch:'full'},
-  {path:'**',component:PageNotFoundComponent}
+  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'**',component:PageNotFoundComponent},
 ];
 
 @NgModule({

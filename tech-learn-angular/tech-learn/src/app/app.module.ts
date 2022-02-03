@@ -26,6 +26,7 @@ import { PageNotFoundComponent } from './miscellaneous/page-not-found/page-not-f
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 
 
 
@@ -48,7 +49,8 @@ import { ToastrModule } from 'ngx-toastr';
     StatusmainSearchComponent,
     StatusmainCreateComponent,
     GeneraterReportsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
