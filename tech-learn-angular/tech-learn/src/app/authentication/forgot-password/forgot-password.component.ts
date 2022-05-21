@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TechLearnServiceService } from 'src/app/tech-learn-service.service';
 import { confirmpasswordvalidator } from './confirmpasswordvalidator';
@@ -12,18 +13,26 @@ import { confirmpasswordvalidator } from './confirmpasswordvalidator';
 export class ForgotPasswordComponent implements OnInit {
    forgotPasswordForm:any=FormGroup;
    existEmail:boolean;
+   token:string;
   constructor(private fb:FormBuilder,
     private techlearnservice:TechLearnServiceService,
-    private toaster: ToastrService) {  
+    private toaster: ToastrService,
+    private act_route: ActivatedRoute,
+    private route:Router) {  
    }
 
   ngOnInit(): void {
     this.forgotPasswordForm=this.fb.group({
       password:new FormControl('',[Validators.required,
         Validators.compose([Validators.minLength(9)])]),
-      confirmpassword:new FormControl('',Validators.required)
-    },{Validator:confirmpasswordvalidator,
-      });
+      confirmpassword:new FormControl('',[Validators.required])
+    },{Validator:[confirmpasswordvalidator]});
+
+
+      this.act_route.queryParams.subscribe((params)=>{
+        this.token=params.token;
+        
+      })
   }
 
 
@@ -44,17 +53,19 @@ export class ForgotPasswordComponent implements OnInit {
 
   changepassword(forgotPasswordForm:FormGroup)
   {
-    console.log('email.....');
 
     if(forgotPasswordForm.valid)
     {
       const email:string = forgotPasswordForm.get('confirmpassword').value;
-      this.techlearnservice.changepassword(email).subscribe((response)=>{
+      this.techlearnservice.changepassword(email,this.token).subscribe((response)=>{
 
-        if(response!=null)
+        if(response!=null){
         this.toaster.success('Password Updated Successfully');
-        else
+        this.route.navigate(['login']);
+        }
+        else{
         this.toaster.error('Fail to Update Password');
+         }
       })
     }else{
       this.validateFormFields(forgotPasswordForm);

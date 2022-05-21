@@ -24,9 +24,10 @@ import { StatusmainCreateComponent } from './statusmain/statusmain-create/status
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PageNotFoundComponent } from './miscellaneous/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+import { JwtInterceptor } from './JwtInterceptor';
 
 
 
@@ -62,7 +63,7 @@ import { ForgotPasswordComponent } from './authentication/forgot-password/forgot
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:JwtInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

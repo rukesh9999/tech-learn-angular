@@ -11,7 +11,7 @@
              <form [formGroup]="loginForm">       
                  <input type="email" class="form-control" placeholder="User Name" formControlName="userName" />
                  <div *ngIf="loginForm.controls.userName.errors && 
-                 (loginForm.controls.userName.touched || loginForm.controls.userName.dirty)" class="text-danger">
+                 (loginForm.controls.userName.touched || loginForm.controls.userName.dirty) " class="text-danger">
                  <div *ngIf="loginForm.hasError('required','userName')">
                     userName is required
                  </div>
@@ -24,7 +24,7 @@
                 </div>
                  <input type="text" class="form-control" placeholder="password" formControlName="password"/>
                  <div *ngIf="loginForm.controls.password.errors && 
-                 (loginForm.controls.password.touched || loginForm.controls.password.dirty)" class="text-danger">
+                 (loginForm.controls.password.touched || loginForm.controls.password.dirty) ||invalidlogin" class="text-danger">
                  <div *ngIf="loginForm.hasError('required','password')">
                     password is required
                  </div>
@@ -34,6 +34,9 @@
                  <div *ngIf="loginForm.hasError('minlength','password')">
                    password  must be At least 3 characters long
                </div>
+               <div *ngIf="invalidlogin">
+                Invalid Username or Password
+              </div>
                 </div>
                  <div class="row">
                     <div class="col-md-4"></div>
@@ -100,6 +103,7 @@
                <div *ngIf="existEmail">
                    Email does not exists
                 </div>
+               
                 </div>
               </div>
             </form>

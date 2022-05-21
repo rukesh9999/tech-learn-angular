@@ -4,6 +4,10 @@ export function confirmpasswordvalidator(control:AbstractControl):{[key:string]:
      const password = control.get('password');
      const confirmpassword = control.get('confirmpassword');
      console.log('validator called..........');
+     console.log('password...'+password);
+     console.log('confirmpassword...'+confirmpassword);
+
+     
      
      let forbidden= false;
      if(password.value!=null && password.value!='undefined' && password.value!='null'

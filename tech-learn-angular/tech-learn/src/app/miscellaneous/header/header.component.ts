@@ -7,12 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
    loggedIn:boolean;
+   fullName:string;
   constructor() { 
-    this.loggedIn=false;
+    
   }
 
   ngOnInit(): void {
-    
+    const token = localStorage.getItem('authenticationToken');
+    if(token!=null && token!=''){
+    this.loggedIn=true;
+    this.fullName = localStorage.getItem('fullName');
+
+    }
+    else{
+    this.loggedIn=false;
+    }
   }
  
 }

@@ -1,5 +1,5 @@
 import { Route } from '@angular/compiler/src/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,10 +18,12 @@ export class LoginComponent implements OnInit {
   showspinner:boolean;
   showloginspinner:boolean;
   disabled:boolean;
+  invalidlogin:boolean
   constructor(private formBuilder:FormBuilder,
     private techlearnservice:TechLearnServiceService,
     private route:Router,
-    private toaster:ToastrService) { 
+    private toaster:ToastrService,
+    ) { 
     this.loginForm=this.formBuilder.group({
       userName:new FormControl('',[Validators.required,
         Validators.compose([Validators.pattern('[A-Za-z0-9_@.]*$'),
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
      
     });
   }
+
 
   ngOnInit(): void {
     this.showspinner=false;
@@ -58,10 +61,19 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('authenticationToken',response.authenticationToken);
           localStorage.setItem('refreshToken',response.refreshToken);
           localStorage.setItem('userName',response.userName);
+          localStorage.setItem('fullName',response.fullName);
+          localStorage.setItem('userId',response.userId);
+          this.toaster.success('Login success')
+          this.route.navigateByUrl('').then(() => {
+            window.location.reload();
+            })
+          this.route.navigate(['technology/tech-dashboard']);
+        },(error)=>{
+          this.showloginspinner=false;
+          this.invalidlogin=true;
+             console.log(error);
+             
         });
-
-        this.route.navigate(['technology/tech-dashboard']);
-
      }else 
      {
        this.validateFormFields(loginForm);
