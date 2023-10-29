@@ -21,7 +21,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { StatusmainEditComponent } from './statusmain/statusmain-edit/statusmain-edit.component';
 import { StatusmainSearchComponent } from './statusmain/statusmain-search/statusmain-search.component';
 import { StatusmainCreateComponent } from './statusmain/statusmain-create/statusmain-create.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { PageNotFoundComponent } from './miscellaneous/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
