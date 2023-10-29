@@ -1,7 +1,5 @@
 <div class="margin ">
     
-
-
     <div class="container mt-5">
 
         <nav aria-label="breadcrumb">
@@ -19,7 +17,8 @@
                 <div class="form-group col-md-6">
                     <label>Name</label>
                     <input type="text" class="form-control" placeholder="Technology Name" formControlName="name" />
-                    <div *ngIf="createTechForm.controls.name.errors && (createTechForm.controls.name.touched ||
+                    <div *ngIf="createTechForm.controls.name.errors 
+                    && (createTechForm.controls.name.touched ||
                     createTechForm.controls.name.dirty)"  class="text-danger">
                     <div *ngIf="createTechForm.hasError('required','name')">
                         Name is Required
@@ -59,12 +58,7 @@
                         <div *ngIf="createTechForm.hasError('required','expectedCompletionDate')">
                             expectedCompletionDate is Required
                         </div>
-                        <div *ngIf="createTechForm.hasError('pattern','expectedCompletionDate')">
-                            expectedCompletionDate is Invalid Format
-                        </div>
-                        <div *ngIf="createTechForm.hasError('minlength','expectedCompletionDate')">
-                            expectedCompletionDate must be 3 characters long
-                        </div>
+        
                         </div>
                     </div>
             </div>

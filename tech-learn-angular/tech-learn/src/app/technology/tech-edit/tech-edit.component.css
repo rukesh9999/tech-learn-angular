@@ -15,12 +15,26 @@
 }
 
 
+.table-list-heading{
+    width:100%;
+    background-color: gray;
+    color: white;
+    padding: 10px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.table-section{
+    margin-bottom: 150px;
+ }
+ 
 .tech-submit{
 
     color: white;
     padding: 10px 0px ;
     margin:10px 0px;
-    width: 1130px;
+    width: 550px;
     background-color: blue;
     border-radius: 14px;
+    text-align: center;
 }

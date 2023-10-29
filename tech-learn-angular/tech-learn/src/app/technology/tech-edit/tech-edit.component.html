@@ -1,26 +1,40 @@
 <div class="margin ">
+    
+    <div class="container mt-5">
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">Technology | Edit Technology</li>
         </ol>
     </nav>
 
     <div class="heading">
-        <span>Create Technology</span>
+        <span>Edit Technology</span>
     </div>
 
 
-    <div class="container mt-5">
-        <form>
+   
+        <form class="mt-5" [formGroup]="editTechForm">
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label>Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Technology Name" />
+                    <input type="text" class="form-control" name="name" placeholder="Technology Name"  formControlName="name"/>
+                    <span *ngIf="editTechForm.controls.name.errors
+                     && (editTechForm.controls.name.touched || editTechForm.controls.name.dirty)" class="text-danger">
+                      <span *ngIf="editTechForm.hasError('required','name')">Name is Required</span>
+                      <span *ngIf="editTechForm.hasError('pattern','name')">Name is Invalid Format</span>
+                      <span *ngIf="editTechForm.hasError('minlength','name')">Name is must be 3 characters long</span>
+                    </span>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label>Description</label>
-                    <textarea type="text" class="form-control" name="name" placeholder="Description"></textarea>
+                    <textarea type="text" class="form-control" name="description" placeholder="Description" formControlName="description"></textarea>
+                    <span *ngIf="editTechForm.controls.description.errors 
+                       && (editTechForm.controls.description.touched || editTechForm.controls.description.dirty)" class="text-danger">
+                      <span *ngIf="editTechForm.hasError('required','description')">Description is Required</span>
+                      <span *ngIf="editTechForm.hasError('minlength','description')">Description Must be 3 characters long</span>
+                    </span>
                 </div>
 
             </div>
@@ -28,17 +42,79 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Expected Completion Date</label>
-                    <input type="text" placeholder="Expected Completion Date" class="form-control" bsDatepicker
-                        [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }">
+                    <input type="text" placeholder="Expected Completion Date" 
+                    class="form-control" bsDatepicker
+                        [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }"
+                    formControlName="expectedCompletionDate">
+                    <span *ngIf="editTechForm.controls.expectedCompletionDate.errors &&
+                    (editTechForm.controls.expectedCompletionDate.touched ||
+                    editTechForm.controls.expectedCompletionDate.dirty)" class="text-danger">
+                    <span *ngIf="editTechForm.hasError('required','expectedCompletionDate')">Expected Completion Date is Required</span>
+                    <span></span>
+                </span>
                 </div>
+
+                <div class="form-group col-md-6">
+                    <label>Status</label>
+                    <!-- <ng-select >
+                        <ng-option></ng-option>
+                     </ng-select>                     -->
+                </div>
+
             </div>
           
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>comment</label>
+                    <textarea type="text" class="form-control" name="comment" placeholder="comment" formControlName="comment"></textarea>
+                    <span *ngIf="editTechForm.controls.comment.errors 
+                       && (editTechForm.controls.comment.touched || editTechForm.controls.comment.dirty)" class="text-danger">
+                      <span *ngIf="editTechForm.hasError('required','comment')">comment is Required</span>
+                      <span *ngIf="editTechForm.hasError('minlength','comment')">comment Must be 3 characters long</span>
+                    </span>
+                </div>
+            </div>
            
             <div  class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Create"  class="tech-submit"/>
+                    <input type="submit" value="Update"  class="tech-submit" (click)="updateTechForm(editTechForm)"/>
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Cancel"  class="tech-submit" routerLink="../../../technology/tech-search"/>
                 </div>
             </div>
+
+            <section class="table-list-heading" >
+                <h5>Comments</h5>
+            </section>
+
+            <div class="table-section">
+                <table class="table">
+                   <thead>
+                     <tr>
+                    <th>Code </th> 
+                    <th>Name</th>
+                    <th>Status</th>              
+                    <th>Created Date</th>
+                    <th>Modified Date</th>                 
+                    <th>Comment</th>
+                    </tr>
+                   </thead>
+                   <tbody>
+                     <tr *ngFor="">
+                     <td>{{technology.code}}</td>
+                     <td>{{technology.name}}</td>
+                     <!-- <td>{{technology.description}}</td> -->
+                     <td>{{technology.createdDate}}</td>
+                     <td>{{technology.modifiedDate}}</td>
+                     <td>{{technology.totalTimeToComplete}}</td>
+                     <td>{{technology.statusName}}</td>
+                     <td><button class="btn btn-primary m-1" routerLink="../../technology/tech-edit/{{technology.technologyId}}">Edit</button>
+                      <button class="btn btn-primary m-1" >Delete</button></td>
+                     <tr>
+                   </tbody>
+                </table>
+             </div>
 
         </form>
     </div>

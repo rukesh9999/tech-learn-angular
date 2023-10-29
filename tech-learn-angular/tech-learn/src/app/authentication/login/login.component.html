@@ -22,7 +22,7 @@
                    userName must be At least 3 characters long
                </div>
                 </div>
-                 <input type="text" class="form-control" placeholder="password" formControlName="password"/>
+                 <input type="password" class="form-control" placeholder="password" formControlName="password"/>
                  <div *ngIf="loginForm.controls.password.errors && 
                  (loginForm.controls.password.touched || loginForm.controls.password.dirty) ||invalidlogin" class="text-danger">
                  <div *ngIf="loginForm.hasError('required','password')">

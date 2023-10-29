@@ -1,7 +1,6 @@
 .margin{
-    margin-top: 116px;
+     margin-top: 116px; 
 }
-
 
 
 .heading{
@@ -10,9 +9,17 @@
     background-color: gray;
     color: white;
     padding: 10px 0px;
-    margin-top: -16px;
-    
-   
+    margin-top: -16px; 
+}
+
+
+.table-list-heading{
+    width:100%;
+    background-color: gray;
+    color: white;
+    padding: 10px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
 }
 
 .table-heading{
@@ -20,8 +27,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.tech-search{
+.btn-tech-search{
     color: white;
     padding: 10px 0px ;
     margin:10px 0px;
@@ -40,13 +46,19 @@
 
 .table {
     width: 100%;
-    margin-bottom: 100px;
+    text-align: justify;
+   
   }
 
-  th.mat-sort-header-sorted {
-    color: black;
-  }
+ .table-section{
+    margin-bottom: 150px;
+ }
 
   .firstname{
     width: 50%;
+  }
+
+  .btn-create-newtech{
+    margin-top: -36px;
+    margin-right: 30px;
   }

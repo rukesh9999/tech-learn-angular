@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'technology/tech-create',component:TechCreateComponent},
   {path:'technology/tech-search',component:TechSearchComponent},
   {path:'technology/tech-dashboard',component:TechDashboardComponent},
-  {path:'technology/tech-edit',component:TechEditComponent},
+  {path:'technology/tech-edit/:technologyId',component:TechEditComponent},
   {path:'batchjobsettings/batchjobsettings-create',component:BatchjobsettingsCreateComponent},
   {path:'batchjobsettings/batchjobsettings-search',component:BatchjobsettingsSearchComponent},
   {path:'batchjobsettings/batchjobsettings-edit',component:BatchjobsettingsEditComponent},

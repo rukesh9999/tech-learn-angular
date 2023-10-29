@@ -15,6 +15,7 @@
         "httpclient",
         "invalidlogin",
         "newpassword",
+        "newtech",
         "portnumber",
         "Protocal",
         "readmails",

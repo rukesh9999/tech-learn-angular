@@ -42,6 +42,7 @@ import { BASE_URL } from "./techlearn.url.const";
 export const TECH_SAVE=BASE_URL+'technology/save';
 export const TECH_ALL=BASE_URL+'technology/all';
 export const TECH_GET=BASE_URL+'technology/get';
+export const TECH_EDIT=BASE_URL+'technology/get';
 export const TECH_UPDATE=BASE_URL+'technology/update';
 export const DASHBOARD_COUNT=BASE_URL+'technology/dashboard/count';
 //end of technology

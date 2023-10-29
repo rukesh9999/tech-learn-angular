@@ -1,5 +1,5 @@
 <div class="margin ">
-    <div class="container mt-5">
+    <div class="container">
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -57,40 +57,50 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Search" class="tech-search"  (click)="searchTechnology(searchTechForm)"/>
+                    <input type="submit" value="Search" class="btn-tech-search"  (click)="searchTechnology(searchTechForm)"/>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <input type="submit" value="Reset" class="tech-search" (click)="resetTechnology(searchTechForm)" />
+                    <input type="submit" value="Reset" class="btn-tech-search" (click)="resetTechnology(searchTechForm)" />
                 </div>
             </div>
          </form>
 
 
-        
+        <section class="table-list-heading" >
+            <table>
+            <td>
+            <h5>List of Technologies</h5>
+            </td>
+            </table>
+            <button class="btn btn-primary float-end btn-create-newtech"  routerLink="../../technology/tech-create">Create</button>   
+        </section>
 
-        <div class="">
+        <div class="table-section">
            <table class="table">
               <thead>
                 <tr>
                <th>Code </th> 
                <th>Name</th>
-               <th>Description</th> 
+               <!-- <th>Description</th>  -->
                <th>Created Date</th>
                <th>Expected Completion Date</th>
                <th>Total Time To Complete</th>
                <th>Status</th>
+               <th>Actions</th>
                </tr>
               </thead>
               <tbody>
-                <tr>
-                <td>21-1</td>
-                <td>Spring</td>
-                <td>Spring</td>
-                <td>21 march,2021</td>
-                <td>21may,2022</td>
-                <td>1year</td>
-                <td>New</td>
+                <tr *ngFor="let technology of technologies">
+                <td>{{technology.code}}</td>
+                <td>{{technology.name}}</td>
+                <!-- <td>{{technology.description}}</td> -->
+                <td>{{technology.createdDate}}</td>
+                <td>{{technology.modifiedDate}}</td>
+                <td>{{technology.totalTimeToComplete}}</td>
+                <td>{{technology.statusName}}</td>
+                <td><button class="btn btn-primary m-1" routerLink="../../technology/tech-edit/{{technology.technologyId}}">Edit</button>
+                 <button class="btn btn-primary m-1" >Delete</button></td>
                 <tr>
               </tbody>
            </table>

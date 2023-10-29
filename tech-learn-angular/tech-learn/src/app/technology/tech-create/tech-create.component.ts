@@ -21,7 +21,7 @@ export class TechCreateComponent implements OnInit {
    
     this.createTechForm = this.formBuilder.group({
       name: new FormControl('',[Validators.required,
-      Validators.compose([Validators.pattern('[a-zA-Z]*'),Validators.minLength(3)])]),
+      Validators.compose([Validators.pattern('[a-zA-Z ]*'),Validators.minLength(3)])]),
       description:new FormControl('',[Validators.required]),
       expectedCompletionDate:new FormControl('',[Validators.required])
     });
@@ -39,7 +39,7 @@ export class TechCreateComponent implements OnInit {
          {
            this.toaster_service.success('Technology saved success');
          }else{
-          this.toaster_service.success('Fail to save Technology');
+          this.toaster_service.error('Fail to save Technology');
          }
          this.route.navigate(['technology/tech-search']);
        })

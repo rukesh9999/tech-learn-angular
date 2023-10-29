@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, MatSortModule  } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Technology } from 'src/app/models/Technology';
+import { TechLearnServiceService } from 'src/app/tech-learn-service.service';
 export interface PeriodicElement {
   code: string;
   name: string;
@@ -26,7 +25,9 @@ export class TechSearchComponent implements OnInit {
   
   status=['New','Inprogress','Closed'];
   searchTechForm:any=FormGroup;
-  constructor(private formBuilder:FormBuilder) {
+  technologies:Technology[]=[];
+  constructor(private formBuilder:FormBuilder,
+    private techlearnservice:TechLearnServiceService) {
 
     this.searchTechForm=this.formBuilder.group({
       name:new FormControl(''),
@@ -39,12 +40,16 @@ export class TechSearchComponent implements OnInit {
    }
   
   ngOnInit(): void {
-    
+    this.searchTechnology(this.searchTechForm);
   }
   
   searchTechnology(searchTechForm:FormControl)
   {
-
+    const searchTechnology = searchTechForm.value;
+    this.techlearnservice.searchTechnology(searchTechnology).subscribe((res)=>{
+        console.log(res);
+        this.technologies=res;
+    });
   }
 
   resetTechnology(searchTechForm:FormControl){
