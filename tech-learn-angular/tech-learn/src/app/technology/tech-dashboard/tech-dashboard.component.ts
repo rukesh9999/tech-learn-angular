@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TechnologyStatusResponse } from 'src/app/models/TechnologyStatusResponse';
 import { TechLearnServiceService } from 'src/app/tech-learn-service.service';
-import { DASHBOARD_COUNT } from 'src/app/techlearn.const';
 
 @Component({
   selector: 'app-tech-dashboard',
